@@ -11,6 +11,15 @@
 </head>
 <body>
     {% block header %}{% endblock %}
+    {% if messages %}
+    {% for message in messages %}
+    <ul>
+        <li>
+            {{ message }}
+        </li>
+    </ul>
+    {% endfor %}
+    {% endif %}
     {% block contents %}{% endblock %}
 </body>
 </html>

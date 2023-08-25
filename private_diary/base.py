@@ -24,9 +24,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-tq%grk&w!9tv$nc64#^tn9$=lx7=!$%mx2_=-t54iadpd-wj!&"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -128,38 +125,3 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-#ロギングの設定
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers':False,
-
-    'formatters':{
-        'dev':{
-            'format':'\t'.join([
-                '%(asctime)s',
-                '[%(levelname)s]',
-                '%(pathname)s(Line:%(lineno)d)',
-                '%(message)s',
-            ])
-        },
-    },
-
-    'handlers':{
-        'console':{
-            'level':'DEBUG',
-            'class':'logging.StreamHandler',
-            'formatter':'dev',
-        },
-    },
-
-    'loggers':{
-        'django':{
-            'handlers':['console'],
-            'level':'INFO',
-        },
-        'diary':{
-            'handlers':['console'],
-            'level':'DEBUG',
-        },
-    },
-}
