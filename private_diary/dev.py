@@ -42,3 +42,4 @@ LOGGING = {
 
 EMAIL_BACKEND ='django.core.mail.backends.console.EmailBackend'
 #これでメールの送信先がコンソールになる
+
