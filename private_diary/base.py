@@ -154,3 +154,5 @@ ACCOUNT_LOGOUT_ON_GET = True
 ACCOUNT_EMAIL_SUBJECT_PREFIX = ''
 
 DEFAULT_FROM_EMAIL = 'admin@example.com'
+
+MEDIA_URL = '/media/'

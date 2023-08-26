@@ -43,3 +43,5 @@ LOGGING = {
 EMAIL_BACKEND ='django.core.mail.backends.console.EmailBackend'
 #これでメールの送信先がコンソールになる
 
+#ImageFieldに対応するフォルダを指定
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
