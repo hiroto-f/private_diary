@@ -6,3 +6,7 @@ from django.contrib.auth.models import AbstractUser
 class CustomUser(AbstractUser):
     class Meta:
         verbose_name_plural = 'CustomUser'
+
+
+#password:superadmin(admin,admin@example.com)
+# user:kage(kage@kage.com,summerdevelop)    
