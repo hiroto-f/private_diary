@@ -49,14 +49,29 @@ class DiaryCreateView(LoginRequiredMixin,generic.CreateView):
     success_url = reverse_lazy('diary:diary_list')
 
     def form_valid(self, form):
-        diary = form.save(commit=False)
-        #モデルフォールクラスのインスタンスをモデルクラスのインスタンスにした
+        diary = form.instance
         diary.user = self.request.user
-        diary.save()
         messages.success(self.request,'日記を作成しました。')
         return super().form_valid(form)
 
     def form_invalid(self, form):
         messages.error(self.request,'日記の作成に失敗しました。')
+        return super().form_invalid(form)
+    
+class DiaryUpdateView(LoginRequiredMixin,generic.UpdateView):
+    model = Diary
+    template_name = 'diary_update.html'
+    fields = ['title','content','photo1','photo2','photo3']
+
+    def get_success_url(self):
+        #print(self.kwargs)
+        return reverse_lazy('diary:diary_detail',kwargs={'pk':self.kwargs['pk']})
+
+    def form_valid(self, form):
+        messages.success(self.request,'日記を更新しました')
+        return super().form_valid(form)
+    
+    def form_invalid(self, form):
+        messages.error(self.request, '日記の更新に失敗しました')
         return super().form_invalid(form)
     
