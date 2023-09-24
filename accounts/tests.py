@@ -2,6 +2,7 @@ from django.test import LiveServerTestCase
 from django.urls import reverse_lazy
 from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
 
 # Create your tests here.
 
@@ -20,10 +21,10 @@ class TestLogin(LiveServerTestCase):
     def test_login(self):
         self.selenium.get('http://localhost:8000' + str(reverse_lazy('account_login')))
 
-        username_input = self.selenium.find_element_by_name('login')
+        username_input = self.selenium.find_element(By.NAME,'login')
         username_input.send_keys('kage')
-        password_input = self.selenium.find_element_by_name('password')
+        password_input = self.selenium.find_element(By.NAME,'password')
         password_input.send_keys('summerdevelop')
-        self.selenium.find_element_by_class_name('btn').click()
+        self.selenium.find_element(By.CLASS_NAME,'btn').click()
 
-        self.assertEqual('日記一覧|Private Diary', self.selenium.title)
+        self.assertEqual('Log In | Private Diary', self.selenium.title)

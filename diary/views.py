@@ -12,7 +12,7 @@ from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 import logging
-logger = logging.getLogger(__name__)
+logger = logging.getLogger(__name__) #__name__ == diary.views
 
 class IndexView(generic.TemplateView):
     template_name = "index.html"
